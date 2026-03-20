@@ -1,7 +1,13 @@
 import Groq from 'groq-sdk';
 import { UserProfile, ErrorType, ThinkingPattern, Problem, Topic, Language } from '@/types';
 
-const groq = new Groq({ apiKey: process.env.GROQ_API_KEY! });
+let _groq: Groq | null = null;
+function getGroq() {
+  if (!_groq) {
+    _groq = new Groq({ apiKey: process.env.GROQ_API_KEY! });
+  }
+  return _groq;
+}
 const MODEL = 'qwen/qwen3-32b';
 
 function cleanJSON(text: string): string {
@@ -22,7 +28,7 @@ export async function classifyError(
   problemDescription: string
 ): Promise<{ error_type: ErrorType; thinking_pattern: ThinkingPattern; confidence: number; explanation: string }> {
   try {
-    const response = await groq.chat.completions.create({
+    const response = await getGroq().chat.completions.create({
       model: MODEL,
       messages: [{
         role: 'user',
@@ -82,7 +88,7 @@ Recent solve rates: ${profile.last_3_solve_rates.map(r => `${r}%`).join(', ') ||
     : "This is the user's first session. Generate a medium difficulty warm-up problem.";
 
   try {
-    const response = await groq.chat.completions.create({
+    const response = await getGroq().chat.completions.create({
       model: MODEL,
       messages: [{
         role: 'user',
@@ -143,7 +149,7 @@ export async function generateCoachResponse(
   conversationHistory: { role: 'user' | 'assistant'; content: string }[]
 ): Promise<string> {
   try {
-    const response = await groq.chat.completions.create({
+    const response = await getGroq().chat.completions.create({
       model: MODEL,
       messages: [
         {
@@ -182,7 +188,7 @@ export async function generateDiagnosis(
   isImprovement: boolean
 ): Promise<string> {
   try {
-    const response = await groq.chat.completions.create({
+    const response = await getGroq().chat.completions.create({
       model: MODEL,
       messages: [{
         role: 'system',
@@ -219,7 +225,7 @@ export async function analyzeJobDescription(jd: string, profile: UserProfile): P
   summary: string;
 }> {
   try {
-    const response = await groq.chat.completions.create({
+    const response = await getGroq().chat.completions.create({
       model: MODEL,
       messages: [{
         role: 'user',
