@@ -1,0 +1,179 @@
+/* NOTE: Fonts are loaded via Next.js font loader in layout.tsx — no @import needed here */
+
+:root {
+  --bg: #E8E4D9;
+  --black: #0D0D0D;
+  --white: #FFFFFF;
+  --yellow: #F5C518;
+  --cyan: #00E8C6;
+  --pink: #FF4EB8;
+  --coral: #FF5252;
+
+  --shadow-sm: 3px 3px 0px var(--black);
+  --shadow-md: 4px 4px 0px var(--black);
+  --shadow-lg: 6px 6px 0px var(--black);
+  --shadow-xl: 8px 8px 0px var(--black);
+
+  --border: 2px solid var(--black);
+  --border-thick: 3px solid var(--black);
+
+  --font-display: 'Bebas Neue', 'Impact', 'Arial Narrow', sans-serif;
+  --font-mono: var(--font-mono-var, 'Courier New', monospace);
+  --font-body: var(--font-body-var, system-ui, sans-serif);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body { height: 100%; }
+
+body {
+  background-color: var(--bg);
+  background-image: radial-gradient(circle, rgba(0,0,0,0.12) 1px, transparent 1px);
+  background-size: 20px 20px;
+  color: var(--black);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── TYPOGRAPHY ─────────────────────────────────── */
+.font-display {
+  font-family: var(--font-display);
+  letter-spacing: 0.02em;
+  font-weight: 400;
+  font-style: normal;
+}
+.font-mono { font-family: var(--font-mono); }
+
+/* ── BRUTALIST CARD ─────────────────────────────── */
+.brut-card {
+  background: white;
+  border: var(--border-thick);
+  box-shadow: var(--shadow-md);
+  transition: transform 80ms ease, box-shadow 80ms ease;
+}
+.brut-card-yellow { background: var(--yellow); border: var(--border-thick); box-shadow: var(--shadow-md); transition: transform 80ms ease, box-shadow 80ms ease; }
+.brut-card-cyan   { background: var(--cyan);   border: var(--border-thick); box-shadow: var(--shadow-md); transition: transform 80ms ease, box-shadow 80ms ease; }
+.brut-card-pink   { background: var(--pink);   border: var(--border-thick); box-shadow: var(--shadow-md); transition: transform 80ms ease, box-shadow 80ms ease; }
+
+/* ── BUTTONS ─────────────────────────────────────── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border: var(--border-thick);
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: transform 80ms ease, box-shadow 80ms ease;
+  box-shadow: var(--shadow-md);
+  text-decoration: none;
+  user-select: none;
+  white-space: nowrap;
+}
+.btn:active { transform: translate(3px, 3px); box-shadow: 1px 1px 0 var(--black); }
+
+.btn-cyan   { background: var(--cyan);   color: var(--black); }
+.btn-pink   { background: var(--pink);   color: var(--black); }
+.btn-yellow { background: var(--yellow); color: var(--black); }
+.btn-black  { background: var(--black);  color: var(--white); }
+.btn-white  { background: var(--white);  color: var(--black); }
+.btn-ghost  { background: transparent;   color: var(--black); box-shadow: none; }
+
+/* ── INPUTS ─────────────────────────────────────── */
+.brut-input {
+  width: 100%;
+  background: white;
+  border: var(--border-thick);
+  padding: 10px 14px;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  outline: none;
+  color: var(--black);
+}
+.brut-input:focus { box-shadow: var(--shadow-sm); }
+.brut-input::placeholder { color: #999; text-transform: uppercase; }
+
+/* ── BADGE ───────────────────────────────────────── */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 3px 8px;
+  border: 2px solid var(--black);
+  white-space: nowrap;
+}
+.badge-yellow { background: var(--yellow); }
+.badge-cyan   { background: var(--cyan); }
+.badge-pink   { background: var(--pink); }
+.badge-black  { background: var(--black); color: white; }
+.badge-white  { background: var(--white); }
+
+/* ── LABEL ───────────────────────────────────────── */
+.label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #666;
+}
+
+/* ── NAV ─────────────────────────────────────────── */
+.nav-link {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--black);
+  padding: 4px 10px;
+  border: 2px solid transparent;
+  border-bottom: none;
+}
+.nav-link:hover { border-color: var(--black); border-bottom: none; }
+.nav-link.active { border-bottom: 3px solid var(--black); font-weight: 700; }
+
+/* ── PROGRESS BAR ────────────────────────────────── */
+.progress-bar {
+  height: 10px;
+  background: rgba(0,0,0,0.08);
+  border: 2px solid var(--black);
+  overflow: hidden;
+}
+.progress-fill {
+  height: 100%;
+  transition: width 0.8s ease;
+}
+
+/* ── DASHED DIVIDER ──────────────────────────────── */
+.dashed-divider {
+  border: none;
+  border-top: 2px dashed rgba(0,0,0,0.2);
+  margin: 0;
+}
+
+/* ── FLOATING ANIMATION ──────────────────────────── */
+@keyframes float {
+  0%, 100% { transform: translateY(0) rotate(var(--rot, 0deg)); }
+  50%       { transform: translateY(-12px) rotate(var(--rot, 0deg)); }
+}
+.floating       { animation: float 5s ease-in-out infinite; }
+.float-delay-1  { animation-delay: 0.7s; }
+.float-delay-2  { animation-delay: 1.5s; }
+.float-delay-3  { animation-delay: 2.3s; }
+
+/* ── SCROLLBAR ───────────────────────────────────── */
+::-webkit-scrollbar { width: 5px; height: 5px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--black); }
