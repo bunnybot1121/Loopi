@@ -157,15 +157,6 @@ Next session: Hindsight recalled → problem generated for that exact gap
 
 ---
 
-## Getting Started
-
-### Prerequisites
-- Node.js 18+
-- Groq API key — [console.groq.com](https://console.groq.com)
-- Gemini API key — [aistudio.google.com](https://aistudio.google.com)
-- Hindsight API key — [ui.hindsight.vectorize.io](https://ui.hindsight.vectorize.io)
-- Clerk account — [clerk.com](https://clerk.com)
-
 ### Installation
 
 ```bash
