@@ -1,4 +1,4 @@
-# PatternMind 🧠
+# BugHunt 🧠
 
 > **The AI coding mentor that remembers why you fail — not just that you did.**
 
